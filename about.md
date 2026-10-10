@@ -2,24 +2,32 @@
 layout: about
 title: About
 nav: about
-description: About The Claw of Knowledge, a webcomic about Coast Guard life and history, and the Coast Guard cartoonist behind it.
-banner_text: "A webcomic about the Coast Guard, its history, and the stick figures who serve in it. Not endorsed by any branch of government, claw, or knowledge."
+description: About The Claw of Knowledge, a webcomic about the Coast Guard and its humor, history, and [insert another word that starts with 'h'].
+banner_text: "A webcomic about the Coast Guard, its history, and the stick figures who serve in it.
 ---
-
-<!-- REPLACE: the two sections below still have placeholder wording. Write them in your own words. -->
 
 ## What Is This
 
-The Claw of Knowledge is a webcomic by a Coast Guard cartoonist covering life afloat, military history, and the general absurdity of government service — through the medium of stick figures in working blues. New comics have been posted since 2014.
+The Claw of Knowledge is a webcomic about the Coast Guard that's been running since 2014. It exists to give Coasties a reason to laugh as they go about saving lives, stopping crime, and spending hours and hours on watch, as well as to teach them about the amazing things their service has done. Or, just to remind civilians that we exist.
 
 ## The Artist
 
-A Coast Guard member who draws comics instead of sleeping on underways. Also the author of *Best Cutters of the Best Coast Guard* and *25 Awesome Facts About the Coast Guard*. Views are personal. The cutter mascot is non-canonical.
+My name is Brian Runion. I used to be in the Coast Guard, but now I draw things in PowerPoint and put them on the internet. Sometimes, those things are funny. My work has appeared in *Task and Purpose,* *We Are the Mighty,* and *Proceedings* magazine. I have published two books, *25 Awesome Facts About the Coast Guard* and *Best Cutters of the Best Coast Guard.*
+
+## Sharing and usage
+
+All comics, articles, and artwork on this site are copyright Brian Runion. All rights reserved.
+
+**Sharing is welcome.** You're free to share my comics, unchanged, as long as you give credit to The Claw of Knowledge (or @clawofknowledge) and link back to the original comic, this site, or one of my social media accounts.
+
+**Anything else needs my permission.** That includes editing or altering a comic (including modifying, altering, or processing with AI), reposting without credit and a link, and reprinting in a publication, video, or presentation.
+
+**No commercial use.** My work may not be used for commercial purposes without my written permission.
 
 ## Contact
 
-Questions, reprint requests for unit newsletters, or ideas for a comic? Email [clawofknowledge@gmail.com](mailto:clawofknowledge@gmail.com).
+Have a question or want permission to use my work? Email [clawofknowledge@gmail.com](mailto:clawofknowledge@gmail.com).
 
 ## Disclaimer
 
-This site is unofficial and represents the personal views of the cartoonist only. Not affiliated with or endorsed by the United States Coast Guard or the Department of Homeland Security.
+This site is not endorsed by the U.S. Coast Guard, or any coast guard. It does not represent the views of the Commandant, Department of Homeland Security, or government official or agency."
