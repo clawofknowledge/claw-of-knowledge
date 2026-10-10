@@ -1,0 +1,28 @@
+THE CLAW OF KNOWLEDGE — first upload with GitHub Desktop
+========================================================
+1. Unzip this file and open the tcok-site folder.
+2. Add your images to images/ (see images/README.txt): at minimum logo.png
+   (the merch photos are already included).
+3. Optional now: add the six font files to fonts/ (see fonts/README.txt).
+   Until then the site uses similar system fonts.
+4. In GitHub Desktop: File > Clone repository > pick your repo.
+5. If the repo already has files from the older one-page version
+   (comics.js, articles.js, the old index.html), delete them from the cloned folder.
+6. Copy EVERYTHING inside tcok-site (not the folder itself) into the cloned
+   repo folder. Make sure everything whose name starts with "_"
+   (_comics, _layouts, _config.yml, etc.) comes along — they're essential.
+7. GitHub Desktop lists the changes. Summary: "Launch Jekyll site".
+   Click "Commit to main", then "Push origin".
+8. On github.com: repo > Settings > Pages. Source should be
+   "Deploy from a branch", branch "main", folder "/ (root)".
+9. Wait 1-3 minutes (the first build takes longest). Watch progress in the
+   repo's Actions tab: a green check means it's live.
+
+Testing before your domain is connected:
+   The site will be at https://YOURNAME.github.io/REPO-NAME/
+   For that address, open _config.yml and set  baseurl: "/REPO-NAME"
+   Set it back to  baseurl: ""  on the day you connect your domain.
+   (If your repo is named YOURNAME.github.io, leave baseurl empty.)
+
+Do NOT add a CNAME file yet. Add it on the day you point Squarespace DNS
+at GitHub. This checklist file is safe to upload or delete.

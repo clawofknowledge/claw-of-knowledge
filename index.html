@@ -1,0 +1,8 @@
+---
+layout: default
+nav: latest
+---
+{%- comment -%} The homepage always shows the newest comic in _comics/ {%- endcomment -%}
+{%- assign latest = site.comics | last -%}
+{%- assign latest_body = latest.content | markdownify -%}
+{% include comic-view.html comic=latest body=latest_body home=true %}

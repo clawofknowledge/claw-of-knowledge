@@ -1,0 +1,28 @@
+---
+layout: null
+permalink: /feed.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>{{ site.title | xml_escape }}</title>
+  <link>{{ "/" | absolute_url }}</link>
+  <atom:link href="{{ '/feed.xml' | absolute_url }}" rel="self" type="application/rss+xml"/>
+  <description>{{ site.description | xml_escape }}</description>
+  <language>en-us</language>
+  <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+  {%- assign newest = site.comics | reverse %}
+  {%- for c in newest limit:20 %}
+  {%- assign num = c.url | split: "/" | last %}
+  <item>
+    <title>{{ c.title | xml_escape }}</title>
+    <link>{{ c.url | absolute_url }}</link>
+    <guid isPermaLink="true">{{ c.url | absolute_url }}</guid>
+    <pubDate>{{ c.date | date_to_rfc822 }}</pubDate>
+    {%- assign img_html = "" -%}
+    {%- if c.image -%}{%- assign img_url = c.image | absolute_url -%}{%- assign img_html = '<p><img src="' | append: img_url | append: '" alt=""></p>' -%}{%- endif %}
+    <description>{{ img_html | xml_escape }}{{ c.content | markdownify | xml_escape }}</description>
+  </item>
+  {%- endfor %}
+</channel>
+</rss>

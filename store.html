@@ -1,0 +1,82 @@
+---
+layout: default
+title: Store
+nav: store
+description: Coast Guard books and stickers from The Claw of Knowledge.
+---
+{%- assign books = site.books | sort: "order" -%}
+{%- assign merch = site.merch | sort: "order" -%}
+<div class="store-wrap">
+  <div class="store-page-header">
+    <h1 class="store-page-title">The Store</h1>
+    <div class="store-page-sub">Books, stickers, and other Coast Guard-related contraband</div>
+  </div>
+
+  <div class="section-header">
+    <h2 class="section-title">Books</h2>
+    <div class="section-line"></div>
+    <span class="section-source">via IngramSpark</span>
+  </div>
+  <div class="books-grid">
+    {%- for b in books %}
+    <div class="book-card">
+      <a class="book-cover" href="{{ b.link }}" target="_blank" rel="noopener">
+        {%- if b.cover %}
+        <img src="{{ b.cover | relative_url }}" alt="{{ b.title | escape }}" loading="lazy">
+        {%- else %}
+        <div class="book-cover-mock">
+          <div class="book-cover-icon">📚</div>
+          <div class="book-cover-mock-title">{{ b.title }}</div>
+          <div class="book-cover-note">Cover image coming soon</div>
+        </div>
+        {%- endif %}
+      </a>
+      <div class="book-info">
+        <a class="book-title" href="{{ b.link }}" target="_blank" rel="noopener" style="text-decoration:none;">{{ b.title }}</a>
+        <div class="book-desc">{{ b.content | markdownify | strip_html | strip }}</div>
+        <div class="book-footer">
+          <span class="book-price">{{ b.price }}</span>
+          <a class="buy-btn" href="{{ b.link }}" target="_blank" rel="noopener">Buy Now</a>
+        </div>
+      </div>
+    </div>
+    {%- endfor %}
+  </div>
+
+  <div class="section-header" style="margin-top:26px;">
+    <h2 class="section-title">Stickers &amp; Merch</h2>
+    <div class="section-line"></div>
+    <span class="section-source">via Sticker Mule &amp; Zazzle</span>
+  </div>
+  <div class="merch-grid">
+    {%- for m in merch %}
+    {%- if m.shop == "zazzle" -%}{%- assign shop_name = "Zazzle" -%}{%- assign badge = "badge-zz" -%}{%- else -%}{%- assign shop_name = "Sticker Mule" -%}{%- assign badge = "badge-sm" -%}{%- endif %}
+    {%- if m.shop == "zazzle" -%}{%- if m.link contains "?" -%}{%- assign ref_part = site.links.zazzle_ref | replace: "?", "&" -%}{%- else -%}{%- assign ref_part = site.links.zazzle_ref -%}{%- endif -%}{%- assign merch_link = m.link | append: ref_part -%}{%- else -%}{%- assign merch_link = m.link -%}{%- endif %}
+    <a class="merch-card" href="{{ merch_link | escape }}" target="_blank" rel="noopener">
+      <div class="merch-thumb">
+        {%- if m.new %}<span class="new-badge">New!</span>{% endif %}
+        <span class="merch-source-badge {{ badge }}">{{ shop_name }}</span>
+        {%- if m.image %}
+        <img src="{{ m.image | relative_url }}" alt="{{ m.title | escape }}" loading="lazy">
+        {%- else %}
+        <div class="merch-thumb-placeholder"><div class="merch-thumb-icon">🏷️</div><div class="merch-thumb-note">Image coming soon</div></div>
+        {%- endif %}
+      </div>
+      <div class="merch-info">
+        <div class="merch-name">{{ m.title }}</div>
+        <span class="merch-shop-link">Shop on {{ shop_name }} →</span>
+      </div>
+    </a>
+    {%- endfor %}
+  </div>
+  <div class="browse-all">
+    <a class="browse-btn" href="{{ site.links.sticker_mule }}" target="_blank" rel="noopener">
+      <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4.5" fill="#000"/></svg>
+      Browse all Sticker Mule items
+    </a>
+    <a class="browse-btn" href="{{ site.links.zazzle | append: site.links.zazzle_ref }}" target="_blank" rel="noopener">
+      <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4.5" fill="#00adef"/></svg>
+      Browse all Zazzle items
+    </a>
+  </div>
+</div>

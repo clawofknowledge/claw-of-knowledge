@@ -1,0 +1,50 @@
+---
+layout: default
+title: Archive
+nav: archive
+description: Every Claw of Knowledge comic and article since 2014, searchable and filterable by tag.
+---
+{%- assign comics_newest = site.comics | reverse -%}
+{%- assign articles_newest = site.articles | reverse -%}
+<div class="archive-wrap">
+  <div class="archive-header">
+    <h1 class="archive-title">Archive</h1>
+    <span class="archive-count" id="archive-count">{{ site.comics.size }} comics · {{ site.articles.size }} articles</span>
+  </div>
+  <div class="archive-filter" id="archive-filter">
+    <button class="filter-btn active" type="button" data-filter="all">All</button>
+    <button class="filter-btn" type="button" data-filter="comic">Comics</button>
+    <button class="filter-btn" type="button" data-filter="article">Articles</button>
+    <input class="search-input" id="archive-search" type="search" placeholder="Search comics&#8230;" aria-label="Search comics and articles">
+  </div>
+  <div class="archive-grid" id="archive-grid">
+    {%- for c in comics_newest %}
+    {%- assign num = c.url | split: "/" | last -%}
+    {%- assign note = c.content | strip_html | normalize_whitespace -%}
+    {%- assign search_text = c.title | append: " " | append: note | downcase %}
+    <a class="archive-card" href="{{ c.url | relative_url }}" data-type="comic" data-tags="{{ c.tags | join: '|' | escape }}" data-search="{{ search_text | escape }}">
+      <div class="archive-thumb">
+        {%- if c.image %}<img src="{{ c.image | relative_url }}" alt="{{ c.title | escape }}" loading="lazy">{% else %}<span class="archive-thumb-emoji">⚓</span>{% endif -%}
+      </div>
+      <div class="archive-card-info">
+        <div class="archive-card-type type-comic">Comic #{{ num }}</div>
+        <div class="archive-card-title">{{ c.title }}</div>
+        <div class="archive-card-meta">{{ c.date | date: "%b %-d, %Y" }}</div>
+      </div>
+    </a>
+    {%- endfor %}
+    {%- for a in articles_newest %}
+    {%- assign note = a.content | strip_html | normalize_whitespace | truncate: 300 -%}
+    {%- assign search_text = a.title | append: " " | append: note | downcase %}
+    <a class="archive-card" href="{{ a.url | relative_url }}" data-type="article" data-tags="" data-search="{{ search_text | escape }}">
+      <div class="archive-thumb" style="background:#fff8e0"><span class="archive-thumb-emoji">📝</span></div>
+      <div class="archive-card-info">
+        <div class="archive-card-type type-post">Article</div>
+        <div class="archive-card-title">{{ a.title }}</div>
+        <div class="archive-card-meta">{{ a.date | date: "%b %-d, %Y" }}</div>
+      </div>
+    </a>
+    {%- endfor %}
+  </div>
+  <p class="archive-empty" id="archive-empty" hidden></p>
+</div>

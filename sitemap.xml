@@ -1,0 +1,18 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>{{ "/" | absolute_url }}</loc><changefreq>weekly</changefreq></url>
+  <url><loc>{{ "/archive/" | absolute_url }}</loc><changefreq>weekly</changefreq></url>
+  <url><loc>{{ "/articles/" | absolute_url }}</loc></url>
+  <url><loc>{{ "/store/" | absolute_url }}</loc></url>
+  <url><loc>{{ "/about/" | absolute_url }}</loc></url>
+  {%- for c in site.comics %}
+  <url><loc>{{ c.url | absolute_url }}</loc><lastmod>{{ c.date | date_to_xmlschema }}</lastmod></url>
+  {%- endfor %}
+  {%- for a in site.articles %}
+  <url><loc>{{ a.url | absolute_url }}</loc><lastmod>{{ a.date | date_to_xmlschema }}</lastmod></url>
+  {%- endfor %}
+</urlset>

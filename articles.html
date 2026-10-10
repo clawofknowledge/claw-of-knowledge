@@ -1,0 +1,24 @@
+---
+layout: default
+title: Articles
+nav: articles
+description: Essays on Coast Guard history and life afloat from The Claw of Knowledge.
+---
+{%- assign articles_newest = site.articles | reverse -%}
+<div class="post-wrap">
+  <div style="margin-bottom:20px;padding-bottom:12px;border-bottom:3px solid var(--navy);">
+    <h1 class="articles-heading">Articles</h1>
+  </div>
+  <div class="article-list">
+    {%- for a in articles_newest %}
+    {%- assign words = a.content | markdownify | strip_html | number_of_words -%}
+    {%- assign mins = words | divided_by: 200 | plus: 1 -%}
+    {%- assign excerpt = a.content | markdownify | strip_html | normalize_whitespace | truncate: 200 %}
+    <a class="article-card" href="{{ a.url | relative_url }}">
+      <div class="article-card-title">{{ a.title }}</div>
+      <div class="article-card-meta">{{ a.date | date: "%b %-d, %Y" }} · {{ mins }} min read</div>
+      <div class="article-card-excerpt">{% if a.description %}{{ a.description }}{% else %}{{ excerpt }}{% endif %}</div>
+    </a>
+    {%- endfor %}
+  </div>
+</div>

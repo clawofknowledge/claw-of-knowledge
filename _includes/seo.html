@@ -1,0 +1,48 @@
+{%- comment -%}
+  Search-engine and social-sharing tags. Built automatically from each
+  page's title, description, image, and text. No need to edit.
+{%- endcomment -%}
+{%- assign seo_title = site.title | append: " — " | append: site.tagline -%}
+{%- if page.title and page.url != "/" -%}
+  {%- assign seo_title = page.title | append: " | " | append: site.title -%}
+{%- endif -%}
+{%- assign seo_desc = "" -%}
+{%- if page.description -%}
+  {%- assign seo_desc = page.description -%}
+{%- elsif page.collection == "comics" or page.collection == "articles" -%}
+  {%- assign seo_desc = page.content | strip_html | normalize_whitespace | truncate: 160 -%}
+{%- endif -%}
+{%- if seo_desc == "" -%}
+  {%- if page.collection == "comics" -%}
+    {%- assign seo_desc = page.title | append: " — a Coast Guard webcomic by " | append: site.title | append: "." -%}
+  {%- else -%}
+    {%- assign seo_desc = site.description -%}
+  {%- endif -%}
+{%- endif -%}
+{%- assign seo_image = site.social_image -%}
+{%- if page.image -%}{%- assign seo_image = page.image -%}{%- endif -%}
+{%- assign seo_type = "website" -%}
+{%- if page.collection == "comics" or page.collection == "articles" -%}{%- assign seo_type = "article" -%}{%- endif %}
+  <title>{{ seo_title | escape }}</title>
+  <meta name="description" content="{{ seo_desc | escape }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta name="robots" content="index, follow">
+  <meta property="og:site_name" content="{{ site.title | escape }}">
+  <meta property="og:type" content="{{ seo_type }}">
+  <meta property="og:title" content="{{ seo_title | escape }}">
+  <meta property="og:description" content="{{ seo_desc | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{{ seo_image | absolute_url }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ seo_title | escape }}">
+  <meta name="twitter:description" content="{{ seo_desc | escape }}">
+  <meta name="twitter:image" content="{{ seo_image | absolute_url }}">
+  <script type="application/ld+json">
+  {%- if page.collection == "comics" %}
+  {"@context": "https://schema.org", "@type": "ComicStory", "name": {{ page.title | jsonify }}, "url": {{ page.url | absolute_url | jsonify }}, "image": {{ seo_image | absolute_url | jsonify }}, "datePublished": {{ page.date | date_to_xmlschema | jsonify }}, "description": {{ seo_desc | jsonify }}, "isPartOf": {"@type": "ComicSeries", "name": {{ site.title | jsonify }}, "url": {{ "/" | absolute_url | jsonify }}}}
+  {%- elsif page.collection == "articles" %}
+  {"@context": "https://schema.org", "@type": "Article", "headline": {{ page.title | jsonify }}, "url": {{ page.url | absolute_url | jsonify }}, "datePublished": {{ page.date | date_to_xmlschema | jsonify }}, "description": {{ seo_desc | jsonify }}, "publisher": {"@type": "Organization", "name": {{ site.title | jsonify }}}}
+  {%- else %}
+  {"@context": "https://schema.org", "@type": "WebSite", "name": {{ site.title | jsonify }}, "url": {{ "/" | absolute_url | jsonify }}, "description": {{ site.description | jsonify }}}
+  {%- endif %}
+  </script>

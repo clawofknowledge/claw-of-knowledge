@@ -1,0 +1,18 @@
+---
+layout: default
+---
+{%- assign words = content | strip_html | number_of_words -%}
+{%- assign mins = words | divided_by: 200 | plus: 1 -%}
+<div class="post-wrap">
+  <article>
+    <div class="post-header"><h1>{{ page.title }}</h1></div>
+    <div class="post-meta">{{ page.date | date: "%b %-d, %Y" }} · {{ mins }} min read · <span style="color:var(--red);font-weight:600;">Article</span></div>
+    <div class="post-content">
+      {{ content }}
+    </div>
+  </article>
+  <div style="margin-top:24px;padding-top:16px;border-top:2px solid var(--line);display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="nav-btn" href="{{ '/articles/' | relative_url }}">‹ All Articles</a>
+    <a class="nav-btn" href="{{ '/' | relative_url }}">‹ Back to Comics</a>
+  </div>
+</div>

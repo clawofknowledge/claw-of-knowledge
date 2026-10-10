@@ -1,0 +1,37 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="{{ '/' | relative_url }}">
+      <img class="logo-img" src="{{ site.logo | relative_url }}" alt="{{ site.title }} logo">
+      <div class="logo-text">
+        <span class="logo-title">{{ site.title }}</span>
+        <span class="logo-sub">{{ site.tagline }}</span>
+      </div>
+    </a>
+    <div class="header-right">
+      <nav class="main-nav" aria-label="Main">
+        <a class="nav-a{% if page.nav == 'latest' %} active{% endif %}" href="{{ '/' | relative_url }}">Latest</a>
+        <a class="nav-a{% if page.nav == 'archive' %} active{% endif %}" href="{{ '/archive/' | relative_url }}">Archive</a>
+        <a class="nav-a{% if page.nav == 'articles' or page.collection == 'articles' %} active{% endif %}" href="{{ '/articles/' | relative_url }}">Articles</a>
+        <a class="nav-a{% if page.nav == 'store' %} active{% endif %}" href="{{ '/store/' | relative_url }}">Store</a>
+        <a class="nav-a{% if page.nav == 'about' %} active{% endif %}" href="{{ '/about/' | relative_url }}">About</a>
+      </nav>
+      <div class="header-social">
+        <a class="sicon si-ig" href="{{ site.links.instagram }}" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="white" stroke-width="2"/><circle cx="12" cy="12" r="5" fill="none" stroke="white" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/></svg>
+        </a>
+        <a class="sicon si-fb" href="{{ site.links.facebook }}" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a class="sicon si-x" href="{{ site.links.x }}" target="_blank" rel="noopener" title="X" aria-label="X">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a class="sicon si-bsky" href="{{ site.links.bluesky }}" target="_blank" rel="noopener" title="Bluesky" aria-label="Bluesky">
+          <svg width="13" height="11" viewBox="0 0 24 20" fill="white"><path d="M12 4C9.5 1.5 4 0 2 2.5c-2 2.5 0 7 2 9 1.5 1.5 4 2 8 2s6.5-.5 8-2c2-2 4-6.5 2-9C20 0 14.5 1.5 12 4z"/><path d="M12 4v12" stroke="white" stroke-width="2" fill="none"/></svg>
+        </a>
+        <a class="sicon si-pt" href="{{ site.links.patreon }}" target="_blank" rel="noopener" title="Patreon" aria-label="Patreon">
+          <svg width="12" height="14" viewBox="0 0 24 24" fill="white"><circle cx="14.5" cy="9.5" r="6.5"/><rect x="3" y="2" width="4" height="20" rx="1"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

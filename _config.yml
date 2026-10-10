@@ -1,0 +1,84 @@
+# =====================================================================
+#  THE CLAW OF KNOWLEDGE — SITE SETTINGS
+#  Every link, handle, and ID used across the site lives in this file.
+#  Change a value here and it updates on every page.
+#  (After editing this file, GitHub rebuilds the site in about a minute.)
+# =====================================================================
+
+title: "The Claw of Knowledge"
+tagline: "A Webcomic About the Coast Guard"
+description: "A webcomic about the Coast Guard, its history, and the stick figures who serve in it. Drawing since 2014."
+
+# ---- Your web address --------------------------------------------------
+# REPLACE with your real domain once DNS is connected (no trailing slash).
+url: "https://www.clawofknowledge.com"
+# Leave baseurl empty when using your own domain.
+# If you want to test at yourname.github.io/REPO-NAME before the domain
+# is connected, set this to "/REPO-NAME" temporarily.
+baseurl: "/claw-of-knowledge"
+
+# ---- Links used in the header, footer, and tip jar ---------------------
+links:
+  instagram: "https://www.instagram.com/clawofknowledge"
+  facebook:  "https://www.facebook.com/clawofknowledge"
+  x:         "https://x.com/clawofknowledge"
+  bluesky:   "https://bsky.app/profile/clawofknowledge"
+  patreon:   "https://www.patreon.com/clawofknowledge"
+  venmo:     "https://venmo.com/u/clawofknowledge"
+  email:     "clawofknowledge@gmail.com"
+  # REPLACE with your Mailchimp/Buttondown signup link when you have one.
+  # While this is empty, the "Get new comics by email" button stays hidden.
+  newsletter: ""
+  sticker_mule: "https://www.stickermule.com/clawofknowledge"
+  zazzle:       "https://www.zazzle.com/store/clawofknowledge"
+  # Your Zazzle referral code. The Store page adds it to the end of every
+  # Zazzle link automatically, so product files only need the plain link.
+  zazzle_ref:   "?rf=238453983922996419"
+
+# ---- Analytics ---------------------------------------------------------
+# After creating a free GoatCounter account, put your code here
+# (e.g. "clawofknowledge"). Leave empty to keep analytics off.
+goatcounter: ""
+
+# ---- Images ------------------------------------------------------------
+logo: "/images/logo.png"
+# Shown when a page without its own image is shared on social media (1200x630).
+social_image: "/images/social-preview.png"
+
+# =====================================================================
+#  CONTENT FOLDERS — where you put a Markdown file decides its page type
+# =====================================================================
+collections:
+  comics:
+    output: true
+    permalink: /comic/:name/        # _comics/155.md  ->  /comic/155/
+  articles:
+    output: true
+    permalink: /article/:name/      # _articles/bear.md  ->  /article/bear/
+  books:
+    output: false                   # shown as cards on the Store page
+  merch:
+    output: false                   # shown as cards on the Store page
+
+defaults:
+  - scope: { path: "", type: comics }
+    values: { layout: comic }
+  - scope: { path: "", type: articles }
+    values: { layout: article }
+
+# =====================================================================
+#  TECHNICAL SETTINGS — no need to change
+# =====================================================================
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+permalink: pretty
+exclude:
+  - README.md
+  - HOW-TO-ADD-CONTENT.md
+  - UPLOAD-CHECKLIST.txt
+  - fonts/README.txt
+  - images/README.txt
+  - Gemfile
+  - Gemfile.lock

@@ -1,0 +1,90 @@
+{%- comment -%}
+  The comic viewer. Used by every comic page and by the homepage.
+  Takes: comic (the comic), body (its Author Note as HTML), home (true on the homepage)
+{%- endcomment -%}
+{%- assign c = include.comic -%}
+{%- assign num = c.url | split: "/" | last -%}
+{%- assign first_comic = site.comics | first -%}
+{%- assign last_comic = site.comics | last -%}
+{%- assign idx = 0 -%}
+{%- for d in site.comics -%}{%- if d.url == c.url -%}{%- assign idx = forloop.index0 -%}{%- endif -%}{%- endfor -%}
+{%- assign prev_i = idx | minus: 1 -%}
+{%- assign next_i = idx | plus: 1 -%}
+{%- assign prev_comic = site.comics[prev_i] -%}
+{%- assign next_comic = site.comics[next_i] -%}
+{%- assign share_url = c.url | absolute_url -%}
+{%- assign share_text = c.title | append: " — " | append: site.title -%}
+{%- assign body_text = include.body | strip_html | strip -%}
+<div class="comic-wrap">
+  {%- if include.home %}
+  <p class="home-tagline">{{ site.description }}</p>
+  {%- endif %}
+  <div class="comic-meta-top">
+    <h1 class="comic-title">{{ c.title }}</h1>
+    <span class="comic-date">{{ c.date | date: "%b %-d, %Y" }} — Comic #{{ num }}</span>
+  </div>
+  <div class="comic-frame">
+    {%- if c.image %}
+    <img src="{{ c.image | relative_url }}" alt="{% if c.alt %}{{ c.alt | escape }}{% else %}{{ c.title | escape }} — a Claw of Knowledge comic{% endif %}">
+    {%- else %}
+    <div class="comic-placeholder">
+      <div class="comic-placeholder-icon">⚓</div>
+      <div class="comic-placeholder-label">{{ c.title }}</div>
+      <div class="comic-placeholder-sub">Add an image: line to this comic's file</div>
+    </div>
+    {%- endif %}
+  </div>
+  <div class="comic-nav">
+    <div class="nav-arrows">
+      {%- if idx == 0 %}
+      <span class="nav-btn filled is-disabled">« First</span>
+      <span class="nav-btn is-disabled">‹ Prev</span>
+      {%- else %}
+      <a class="nav-btn filled" href="{{ first_comic.url | relative_url }}">« First</a>
+      <a class="nav-btn" rel="prev" href="{{ prev_comic.url | relative_url }}">‹ Prev</a>
+      {%- endif %}
+      <div class="nav-divider"></div>
+      <button class="nav-btn random" type="button" data-random>Random &#129517;</button>
+      <div class="nav-divider"></div>
+      {%- if c.url == last_comic.url %}
+      <span class="nav-btn is-disabled">Next ›</span>
+      <span class="nav-btn filled is-disabled">Latest »</span>
+      {%- else %}
+      <a class="nav-btn" rel="next" href="{{ next_comic.url | relative_url }}">Next ›</a>
+      <a class="nav-btn filled" href="{{ last_comic.url | relative_url }}">Latest »</a>
+      {%- endif %}
+    </div>
+    <span class="permalink-tag">Permalink: <a href="{{ c.url | relative_url }}">{{ c.url }}</a></span>
+    <a class="nav-btn red" href="{{ '/archive/' | relative_url }}">Archive</a>
+  </div>
+  <div class="share-row" data-share-url="{{ share_url }}" data-share-title="{{ share_text | escape }}">
+    <span class="share-label">Share this comic:</span>
+    <button class="share-btn" type="button" data-copy-link>&#128279; Copy Link</button>
+    <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u={{ share_url | url_encode }}" target="_blank" rel="noopener">Facebook</a>
+    <a class="share-btn" href="https://twitter.com/intent/tweet?url={{ share_url | url_encode }}&amp;text={{ share_text | url_encode }}" target="_blank" rel="noopener">X</a>
+    <button class="share-btn" type="button" data-native-share hidden>Share&#8230;</button>
+  </div>
+  {%- if body_text != "" %}
+  <div class="comic-body">
+    {{ include.body }}
+  </div>
+  {%- endif %}
+  {%- if c.transcript %}
+  <details class="transcript">
+    <summary>Read the transcript</summary>
+    <div class="transcript-body">{{ c.transcript | markdownify }}</div>
+  </details>
+  {%- endif %}
+  {%- if c.tags and c.tags.size > 0 %}
+  <div class="comic-tags">
+    {%- for t in c.tags %}
+    <a class="comic-tag" href="{{ '/archive/' | relative_url }}?tag={{ t | url_encode }}">{{ t }}</a>
+    {%- endfor %}
+  </div>
+  {%- endif %}
+  <div class="support-strip">
+    <span class="support-text">Enjoying the comics? Keep the cartoonist caffeinated:</span>
+    <a class="support-btn venmo" href="{{ site.links.venmo }}" target="_blank" rel="noopener">Venmo</a>
+    <a class="support-btn patreon" href="{{ site.links.patreon }}" target="_blank" rel="noopener">Patreon</a>
+  </div>
+</div>

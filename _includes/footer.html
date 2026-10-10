@@ -1,0 +1,40 @@
+<footer class="site-footer">
+  <div class="patreon-cta">
+    <a class="pt-btn" href="{{ site.links.patreon }}" target="_blank" rel="noopener">
+      <svg width="15" height="16" viewBox="0 0 24 24" fill="white"><circle cx="14.5" cy="9.5" r="6.5"/><rect x="3" y="2" width="4" height="20" rx="1"/></svg>
+      <span class="pt-btn-text">Support on Patreon</span>
+    </a>
+    <a class="pt-btn venmo" href="{{ site.links.venmo }}" target="_blank" rel="noopener">
+      <span class="pt-btn-text">Tip on Venmo</span>
+    </a>
+  </div>
+  <div class="footer-connect">
+    {%- if site.links.newsletter and site.links.newsletter != "" %}
+    <a class="connect-btn" href="{{ site.links.newsletter }}" target="_blank" rel="noopener">&#9993; Get new comics by email</a>
+    {%- endif %}
+    <a class="connect-btn" href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    <a class="connect-btn" href="mailto:{{ site.links.email }}">Contact</a>
+  </div>
+  <div class="footer-social">
+    <a class="fsb" href="{{ site.links.instagram }}" target="_blank" rel="noopener">
+      <div class="sicon si-ig" style="width:20px;height:20px;border-radius:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="white" stroke-width="2"/><circle cx="12" cy="12" r="5" fill="none" stroke="white" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/></svg></div>
+      <span class="fsb-label">Instagram</span>
+    </a>
+    <a class="fsb" href="{{ site.links.facebook }}" target="_blank" rel="noopener">
+      <div class="sicon si-fb" style="width:20px;height:20px;border-radius:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+      <span class="fsb-label">Facebook</span>
+    </a>
+    <a class="fsb" href="{{ site.links.x }}" target="_blank" rel="noopener">
+      <div class="sicon si-x" style="width:20px;height:20px;border-radius:4px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
+      <span class="fsb-label">X</span>
+    </a>
+    <a class="fsb" href="{{ site.links.bluesky }}" target="_blank" rel="noopener">
+      <div class="sicon si-bsky" style="width:20px;height:20px;border-radius:4px;"><svg width="11" height="9" viewBox="0 0 24 20" fill="white"><path d="M12 4C9.5 1.5 4 0 2 2.5c-2 2.5 0 7 2 9 1.5 1.5 4 2 8 2s6.5-.5 8-2c2-2 4-6.5 2-9C20 0 14.5 1.5 12 4z"/></svg></div>
+      <span class="fsb-label">Bluesky</span>
+    </a>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-wordmark">{{ site.title }}</span>
+    <span class="footer-disclaimer">Not endorsed by the U.S. Coast Guard or any branch of government. Views are the artist's own.</span>
+  </div>
+</footer>
