@@ -2,13 +2,13 @@
 layout: about
 title: About
 nav: about
-description: About The Claw of Knowledge, a webcomic about the Coast Guard and its humor, history, and [insert another word that starts with 'h'].
-banner_text: "A webcomic about the Coast Guard, its history, and the stick figures who serve in it.
+description: About The Claw of Knowledge, a webcomic about the Coast Guard and its humor, history, and heroism. Created by a veteran to teach people about the most-obscure branch of the military.
+banner_text: "A webcomic about the Coast Guard, its history, and the stick figures who serve in it."
 ---
 
 ## What Is This
 
-The Claw of Knowledge is a webcomic about the Coast Guard that's been running since 2014. It exists to give Coasties a reason to laugh as they go about saving lives, stopping crime, and spending hours and hours on watch, as well as to teach them about the amazing things their service has done. Or, just to remind civilians that we exist.
+The Claw of Knowledge is a webcomic about the Coast Guard that's been running since 2014. It exists to give Coasties a reason to laugh as they go about saving lives, stopping crime, and spending hours and hours on watch, as well as to teach them about the amazing things their service has done. Or, just to remind people that we exist.
 
 ## The Artist
 
@@ -30,4 +30,4 @@ Have a question or want permission to use my work? Email [clawofknowledge@gmail.
 
 ## Disclaimer
 
-This site is not endorsed by the U.S. Coast Guard, or any coast guard. It does not represent the views of the Commandant, Department of Homeland Security, or government official or agency."
+This site is not endorsed by the U.S. Coast Guard, or any coast guard. It does not represent the views of the Commandant, Department of Homeland Security, or any government official or agency.
