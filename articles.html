@@ -14,10 +14,15 @@ description: Essays on Coast Guard history and life afloat from The Claw of Know
     {%- assign words = a.content | markdownify | strip_html | number_of_words -%}
     {%- assign mins = words | divided_by: 200 | plus: 1 -%}
     {%- assign excerpt = a.content | markdownify | strip_html | normalize_whitespace | truncate: 200 %}
-    <a class="article-card" href="{{ a.url | relative_url }}">
-      <div class="article-card-title">{{ a.title }}</div>
-      <div class="article-card-meta">{{ a.date | date: "%b %-d, %Y" }} · {{ mins }} min read</div>
-      <div class="article-card-excerpt">{% if a.description %}{{ a.description }}{% else %}{{ excerpt }}{% endif %}</div>
+    <a class="article-card" href="{{ a.url | relative_url }}" style="display:flex;gap:14px;align-items:flex-start;">
+      {%- if a.image %}
+      <img src="{{ a.image | relative_url }}" alt="{{ a.title | escape }}" loading="lazy" style="width:80px;height:80px;object-fit:cover;border-radius:6px;border:1.5px solid var(--line);flex-shrink:0;">
+      {%- endif %}
+      <div>
+        <div class="article-card-title">{{ a.title }}</div>
+        <div class="article-card-meta">{{ a.date | date: "%b %-d, %Y" }} · {{ mins }} min read</div>
+        <div class="article-card-excerpt">{% if a.description %}{{ a.description }}{% else %}{{ excerpt }}{% endif %}</div>
+      </div>
     </a>
     {%- endfor %}
   </div>

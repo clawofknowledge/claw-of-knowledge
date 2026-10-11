@@ -37,7 +37,9 @@ description: Every Claw of Knowledge comic and article since 2014, searchable an
     {%- assign note = a.content | strip_html | normalize_whitespace | truncate: 300 -%}
     {%- assign search_text = a.title | append: " " | append: note | downcase %}
     <a class="archive-card" href="{{ a.url | relative_url }}" data-type="article" data-tags="" data-search="{{ search_text | escape }}">
-      <div class="archive-thumb" style="background:#fff8e0"><span class="archive-thumb-emoji">📝</span></div>
+      <div class="archive-thumb" style="{% unless a.image %}background:#fff8e0{% endunless %}">
+        {%- if a.image %}<img src="{{ a.image | relative_url }}" alt="{{ a.title | escape }}" loading="lazy">{% else %}<span class="archive-thumb-emoji">📝</span>{% endif -%}
+      </div>
       <div class="archive-card-info">
         <div class="archive-card-type type-post">Article</div>
         <div class="archive-card-title">{{ a.title }}</div>

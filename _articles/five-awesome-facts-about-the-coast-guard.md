@@ -2,6 +2,7 @@
 title: "Five Awesome Facts About The Coast Guard"
 date: 2026-02-14
 description: "A former Coastie explains that the Coast Guard is way more than a bunch of lifeguards."
+image: /images/articles/five-facts-5.jpg
 ---
 
 I used to be in the Coast Guard, and I'd always get a lot of questions whenever I'd walk around in uniform. Questions like "How long have you been in the Air Force?" and "What time does my train leave?" These were all important questions, of course, but I rarely had the answers.

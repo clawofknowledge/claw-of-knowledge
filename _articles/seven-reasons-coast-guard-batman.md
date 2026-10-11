@@ -2,6 +2,7 @@
 title: "7 Reasons the Coast Guard is Batman"
 date: 2015-02-05
 description: "Batman fights crime, answers a signal in the sky, swings grappling hooks, and has no superpowers. So does the Coast Guard. Seven reasons the Coast Guard is Batman."
+image: /images/articles/batman-4.jpg
 ---
 
 ![Stick-figure comic panel of a dockside at night, with city lights in the background. A caption reads "Night rolls in over the docks of Gotham City..." Another reads "Shady characters load unmarked crates into a waiting cigarette boat..." Two scowling smugglers pass wooden crates from the dock to the boat.]({{ '/images/batman-1.jpg' | relative_url }})
