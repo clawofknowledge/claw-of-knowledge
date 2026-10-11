@@ -10,12 +10,8 @@ tagline: "A Webcomic About the Coast Guard"
 description: "A webcomic about the Coast Guard, its history, and the stick figures who serve in it. Drawing since 2014."
 
 # ---- Your web address --------------------------------------------------
-# REPLACE with your real domain once DNS is connected (no trailing slash).
 url: "https://www.clawofknowledge.com"
-# Leave baseurl empty when using your own domain.
-# If you want to test at yourname.github.io/REPO-NAME before the domain
-# is connected, set this to "/REPO-NAME" temporarily.
-baseurl: "/claw-of-knowledge"
+baseurl: ""
 
 # ---- Links used in the header, footer, and tip jar ---------------------
 links:
